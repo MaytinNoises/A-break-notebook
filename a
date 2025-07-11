@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Minimalista</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --text: #ffffff;
+      --accent: #8e44ad;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><g fill="none" stroke="white" stroke-opacity="0.035" stroke-width="1.5"><path d="M250 10 C270 100 230 100 250 200 C270 300 230 300 250 400 C270 300 310 300 290 200 C270 100 310 100 250 10 Z"/><circle cx="250" cy="200" r="80"/></g></svg>') center center/contain no-repeat;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="none" stroke="white" stroke-opacity="0.05" stroke-width="1" d="M100,10 C130,40 130,160 100,190 C70,160 70,40 100,10 Z"/></svg>') center center/cover no-repeat;
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      padding: 1rem;
+      background: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .menu-btn {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    nav {
+      position: fixed;
+      left: -200px;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      background: #222;
+      padding: 1rem;
+      transition: left 0.3s;
+    }
+    nav.show {
+      left: 0;
+    }
+    nav a {
+      display: block;
+      color: var(--text);
+      text-decoration: none;
+      margin: 1rem 0;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .frase {
+      text-align: center;
+      font-style: italic;
+      opacity: 1;
+      transition: opacity 2s ease;
+    }
+    .toggle-btn {
+      background: none;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .leer-mas {
+      color: var(--accent);
+      cursor: pointer;
+      display: block;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <button class="toggle-btn" onclick="toggleModo()">Modo claro/oscuro</button>
+  </header>
+  <nav id="menu">
+    <a href="#">Inicio</a>
+    <a href="#">Entradas</a>
+    <a href="#">Sobre mí</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <div class="container">
+    <div id="frase" class="frase"></div>
+
+    <article>
+      <h1>Paginas de un cuaderno roto</h1>
+      <p>
+        Este es el inicio de un texto que explora el lenguaje, la observación y la pausa. Porque leer también es una forma de escribir en silencio, y escribir es leer lo que aún no existe.
+        <span id="extra" style="display:none">
+          <br><br>
+          A veces, las palabras se deslizan como sombras en el mármol de la página. Nos buscan, nos nombran, y cuando las dejamos fluir, tal vez algo de nosotros se queda en ellas para siempre.
+        </span>
+        <span class="leer-mas" onclick="toggleTexto()" id="btnLeer">Leer más...</span>
+      </p>
+    </article>
+
+    <article>
+      <h1>Sombras que escriben</h1>
+      <p>
+        Escribimos porque algo dentro se desborda, porque el mundo no cabe solo en los días. A veces una línea basta para contener una vida entera.
+        <span id="extra2" style="display:none">
+          <br><br>
+          No siempre buscamos ser leídos, a veces basta con ser escuchados por la página en blanco. Esa complicidad que no juzga, que simplemente espera.
+        </span>
+        <span class="leer-mas" onclick="toggleTexto2()" id="btnLeer2">Leer más...</span>
+      </p>
+    </article>
+
+    <!-- Artículos vacíos -->
+    <article>
+      <h1>Título 3</h1>
+      <p>
+        Introducción breve para el artículo 3.
+        <span id="extra3" style="display:none">
+          <br><br>
+          Contenido extendido del artículo 3.
+        </span>
+        <span class="leer-mas" onclick="toggleTexto3()" id="btnLeer3">Leer más...</span>
+      </p>
+    </article>
+
+    <article>
+      <h1>Título 4</h1>
+      <p>
+        Introducción breve para el artículo 4.
+        <span id="extra4" style="display:none">
+          <br><br>
+          Contenido extendido del artículo 4.
+        </span>
+        <span class="leer-mas" onclick="toggleTexto4()" id="btnLeer4">Leer más...</span>
+      </p>
+    </article>
+
+    <article>
+      <h1>Título 5</h1>
+      <p>
+        Introducción breve para el artículo 5.
+        <span id="extra5" style="display:none">
+          <br><br>
+          Contenido extendido del artículo 5.
+        </span>
+        <span class="leer-mas" onclick="toggleTexto5()" id="btnLeer5">Leer más...</span>
+      </p>
+    </article>
+
+    <article>
+      <h1>Título 6</h1>
+      <p>
+        Introducción breve para el artículo 6.
+        <span id="extra6" style="display:none">
+          <br><br>
+          Contenido extendido del artículo 6.
+        </span>
+        <span class="leer-mas" onclick="toggleTexto6()" id="btnLeer6">Leer más...</span>
+      </p>
+    </article>
+
+    <article>
+      <h1>Título 7</h1>
+      <p>
+        Introducción breve para el artículo 7.
+        <span id="extra7" style="display:none">
+          <br><br>
+          Contenido extendido del artículo 7.
+        </span>
+        <span class="leer-mas" onclick="toggleTexto7()" id="btnLeer7">Leer más...</span>
+      </p>
+    </article>
+
+    <article>
+      <h1>Título 8</h1>
+      <p>
+        Introducción breve para el artículo 8.
+        <span id="extra8" style="display:none">
+          <br><br>
+          Contenido extendido del artículo 8.
+        </span>
+        <span class="leer-mas" onclick="toggleTexto8()" id="btnLeer8">Leer más...</span>
+      </p>
+    </article>
+
+    <article>
+      <h1>Título 9</h1>
+      <p>
+        Introducción breve para el artículo 9.
+        <span id="extra9" style="display:none">
+          <br><br>
+          Contenido extendido del artículo 9.
+        </span>
+        <span class="leer-mas" onclick="toggleTexto9()" id="btnLeer9">Leer más...</span>
+      </p>
+    </article>
+
+  </div>
+
+  <script>
+    const frases = [
+      "Leer es tocar con la mente lo que otro escribió con el alma.",
+      "Escribir es dejar una cicatriz que no sangra.",
+      "A veces se escribe para entender lo que el silencio calla.",
+      "Cada palabra es una habitación donde algo nuestro se esconde.",
+      "Leer no es huir, es regresar por otro camino."
+    ];
+
+    window.onload = function() {
+      const fraseBox = document.getElementById("frase");
+      const frase = frases[Math.floor(Math.random() * frases.length)];
+      fraseBox.textContent = frase;
+      setTimeout(() => fraseBox.style.opacity = 0, 5000);
+    };
+
+    function toggleModo() {
+      const r = document.documentElement.style;
+      const isDark = getComputedStyle(document.body).backgroundColor === "rgb(18, 18, 18)";
+      if (isDark) {
+        r.setProperty('--bg', '#f2f2f2');
+        r.setProperty('--text', '#111');
+      } else {
+        r.setProperty('--bg', '#121212');
+        r.setProperty('--text', '#e0e0e0');
+      }
+    }
+
+    function toggleTexto() {
+      const extra = document.getElementById("extra");
+      const btn = document.getElementById("btnLeer");
+      if (extra.style.display === "none") {
+        extra.style.display = "inline";
+        btn.textContent = "Leer menos...";
+      } else {
+        extra.style.display = "none";
+        btn.textContent = "Leer más...";
+      }
+    }
+
+    function toggleTexto2() {
+      const extra = document.getElementById("extra2");
+      const btn = document.getElementById("btnLeer2");
+      if (extra.style.display === "none") {
+        extra.style.display = "inline";
+        btn.textContent = "Leer menos...";
+      } else {
+        extra.style.display = "none";
+        btn.textContent = "Leer más...";
+      }
+    }
+
+    for (let i = 3; i <= 9; i++) {
+      window[`toggleTexto${i}`] = function() {
+        const extra = document.getElementById(`extra${i}`);
+        const btn = document.getElementById(`btnLeer${i}`);
+        if (extra.style.display === "none") {
+          extra.style.display = "inline";
+          btn.textContent = "Leer menos...";
+        } else {
+          extra.style.display = "none";
+          btn.textContent = "Leer más...";
+        }
+      }
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
